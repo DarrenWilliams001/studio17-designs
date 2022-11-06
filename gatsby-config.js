@@ -6,10 +6,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://gatsbywordpresshomepage.gatsbyjs.io/",
-    title: "Gatsby WordPress Homepage Starter",
-    author: `Gatsby`,
-    description: "A Gatsby Starter for building homepages with WordPress",
+    siteUrl: "https://www.studio17designs.com.au//",
+    title: "Studio17 Designs | Web Development",
+    author: `Studio17Designs`,
+    description: "Frontend developer building headless WordPress Sites",
   },
   plugins: [
     {
@@ -22,7 +22,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-vanilla-extract",
+    "gatsby-plugin-sass",
     {
       resolve: "gatsby-plugin-manifest",
       options: {

@@ -1,44 +1,34 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import * as sections from "../components/sections"
-import Fallback from "../components/fallback"
+import { StaticImage } from "gatsby-plugin-image"
 
 export default function Homepage(props) {
-  const { homepage } = props.data
+  const { wpPage } = props.data
+  const { homepage } = wpPage
 
   return (
     <Layout {...homepage}>
-      {homepage.blocks.map((block) => {
-        const { id, blocktype, ...componentProps } = block
-        const Component = sections[blocktype] || Fallback
-        return <Component key={id} {...componentProps} />
-      })}
+      <h1>{homepage.hero.heading}</h1>
+      <h2>{homepage.hero.subheading}</h2>
+      <StaticImage src={homepage.hero.image.sourceUrl} alt="img" />
     </Layout>
   )
 }
 
 export const query = graphql`
-  {
-    homepage {
-      id
-      title
-      description
-      image {
-        id
-        url
-      }
-      blocks: content {
-        id
-        blocktype
-        ...HomepageHeroContent
-        ...HomepageFeatureListContent
-        ...HomepageCtaContent
-        ...HomepageLogoListContent
-        ...HomepageTestimonialListContent
-        ...HomepageBenefitListContent
-        ...HomepageStatListContent
-        ...HomepageProductListContent
+  query {
+    wpPage {
+      homepage {
+        hero {
+          heading
+          subheading
+          image {
+            srcSet
+            sourceUrl
+            id
+          }
+        }
       }
     }
   }
